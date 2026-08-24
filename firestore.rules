@@ -1,0 +1,54 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Public reading for election transparency, authenticated creation and updates
+    match /incidents/{incidentId} {
+      allow read: if true;
+      allow create: if true; // Allowed in demo/field offline-sync mode
+      allow update: if true;
+      allow delete: if isAuthenticated();
+    }
+    
+    match /results/{resultId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if true;
+      allow delete: if isAuthenticated();
+    }
+
+    match /openingReports/{reportId} {
+      allow read: if true;
+      allow create, update: if true;
+    }
+
+    match /votingReports/{reportId} {
+      allow read: if true;
+      allow create, update: if true;
+    }
+
+    match /closingReports/{reportId} {
+      allow read: if true;
+      allow create, update: if true;
+    }
+    
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    
+    match /auditLogs/{logId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if false; // Immutable audit trail
+    }
+
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

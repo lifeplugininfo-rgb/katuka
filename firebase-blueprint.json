@@ -1,0 +1,102 @@
+{
+  "entities": {
+    "IncidentReport": {
+      "title": "IncidentReport",
+      "description": "Field observation incident report with verification workflow",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "puId": { "type": "string" },
+        "puCode": { "type": "string" },
+        "puName": { "type": "string" },
+        "wardId": { "type": "string" },
+        "wardName": { "type": "string" },
+        "category": { "type": "string" },
+        "categoryLabel": { "type": "string" },
+        "severity": { "type": "string" },
+        "timeOccurred": { "type": "string" },
+        "description": { "type": "string" },
+        "observerId": { "type": "string" },
+        "observerName": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "verificationStatus": { "type": "string" },
+        "verifierNotes": { "type": "string" }
+      },
+      "required": ["id", "puId", "puCode", "wardId", "category", "severity", "description", "timestamp"]
+    },
+    "ResultSubmission": {
+      "title": "ResultSubmission",
+      "description": "Form EC8A polling unit vote tally submission",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "puId": { "type": "string" },
+        "puCode": { "type": "string" },
+        "puName": { "type": "string" },
+        "wardId": { "type": "string" },
+        "wardName": { "type": "string" },
+        "registeredVoters": { "type": "number" },
+        "accreditedVoters": { "type": "number" },
+        "validVotes": { "type": "number" },
+        "rejectedVotes": { "type": "number" },
+        "totalVotes": { "type": "number" },
+        "observerId": { "type": "string" },
+        "observerName": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "validationStatus": { "type": "string" },
+        "verificationStatus": { "type": "string" }
+      },
+      "required": ["id", "puId", "puCode", "wardId", "registeredVoters", "accreditedVoters", "validVotes", "rejectedVotes", "totalVotes", "timestamp"]
+    },
+    "User": {
+      "title": "User",
+      "description": "Application user and observer profile",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "organization": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "email", "name", "role"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Immutable security and action audit trail log",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "action": { "type": "string" },
+        "category": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userRole": { "type": "string" },
+        "targetType": { "type": "string" },
+        "targetId": { "type": "string" },
+        "details": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "action", "category", "userId", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/incidents/{incidentId}": {
+      "schema": "IncidentReport",
+      "description": "Collection of observed election incident reports"
+    },
+    "/results/{resultId}": {
+      "schema": "ResultSubmission",
+      "description": "Collection of Form EC8A vote submissions"
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and credentials"
+    },
+    "/auditLogs/{logId}": {
+      "schema": "AuditLog",
+      "description": "System and observation audit logs"
+    }
+  }
+}

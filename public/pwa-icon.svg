@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="pwaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="110" fill="url(#pwaGrad)"/>
+  <!-- Shield outline -->
+  <path d="M256 90 L390 145 C390 270 330 375 256 420 C182 375 122 270 122 145 Z" fill="#ffffff" fill-opacity="0.12" filter="url(#shadow)"/>
+  <path d="M256 110 L370 160 C370 265 318 355 256 395 C194 355 142 265 142 160 Z" fill="#ffffff" fill-opacity="0.95"/>
+  <!-- Checkmark / Ballot Emblem -->
+  <path d="M200 240 L238 278 L318 198" fill="none" stroke="#059669" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Base Stars/Dots -->
+  <circle cx="210" cy="330" r="10" fill="#0f766e"/>
+  <circle cx="256" cy="340" r="12" fill="#0f766e"/>
+  <circle cx="302" cy="330" r="10" fill="#0f766e"/>
+</svg>

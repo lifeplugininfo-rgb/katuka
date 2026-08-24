@@ -1,0 +1,19 @@
+{
+  "name": "Katukan Anka Situation Room",
+  "short_name": "Katukan Anka PWA",
+  "description": "Neutral election observation and data intelligence platform for Anka LGA, Zamfara State.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#059669",
+  "orientation": "portrait-primary",
+  "categories": ["government", "utilities", "productivity"],
+  "icons": [
+    {
+      "src": "/pwa-icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

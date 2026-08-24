@@ -1,0 +1,11 @@
+{
+  "name": "Katukan Anka Situation Room",
+  "description": "Neutral election observation and information management platform for Katukan Anka Situation Room in Anka LGA, Zamfara State, Nigeria featuring offline-first reporting, verification workflows, live situation room, and public monitoring statistics.",
+  "requestFramePermissions": [
+    "geolocation",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
